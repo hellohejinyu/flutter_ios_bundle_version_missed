@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,20 +48,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  PackageInfo? packageInfo;
-
-  int _counter = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    PackageInfo.fromPlatform().then((value) {
-      setState(() {
-        packageInfo = value;
-      });
-    });
-  }
-
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -70,7 +55,6 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
     });
   }
 
@@ -107,14 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'version: ${packageInfo?.version}',
-            ),
-            Text(
-              'buildNumber: ${packageInfo?.buildNumber}',
-            ),
-          ],
+          children: const <Widget>[],
         ),
       ),
       floatingActionButton: FloatingActionButton(
